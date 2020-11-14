@@ -1,0 +1,12 @@
+﻿@{
+    ViewData["Title"] = "Beers";
+}
+@model Beerhall.Models.Domain.Beer
+<h2>@ViewData["Title"]</h2>
+<h4>Please confirm you want to delete beer @Model.Name …</h4>
+<form asp-action="BeerDelete" method="post">
+    <div>
+        <button class="btn btn-primary" type="submit" asp-route-id="@Model.BeerId" asp-route-brId="@Model.BrewerId">Delete</button>
+        <a asp-action="Index" class="btn btn-default">Cancel</a>
+    </div>
+</form>Z

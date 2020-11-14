@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "Beers";
+}
+@model Beerhall.Models.Domain.Brewer;
+<head>
+    <title>
+        @ViewData["Title"] - BeerHall
+    </title>
+</head>
+<p>
+    <h3>ololo</h3>
+</p>
+<p>List of beers</p>
+@if (Model == null)
+{
+    <p> EMPTY</p>
+}
+else
+{
+    <p>NOT EMPTY</p>
+}
+
+<table class="table table-striped table-condensed table-bordered">
+    <tr>
+        <th>Name</th>
+        <th>Alcohol</th>
+        <th>Price</th>
+        <th>Description</th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model.Beers)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.AlcoholByVolume</td>
+
+            <td class="text-right">@(item.Price.ToString("c") ?? "-")</td>
+            <td>@(item.Description ?? "no description") </td>
+            <td>
+                <a asp-controller="Brewer" asp-action="BeerDelete" asp-route-id="@item.BeerId">Delete</a>
+            </td>
+        </tr>
+    }
+</table>
+<a asp-controller="Brewer" asp-action="BeerAdd" asp-route-brId="@Model.BrewerId">Add</a>
+<a asp-controller="Brewer" asp-action="Index" class="btn btn-primary">Back</a>
