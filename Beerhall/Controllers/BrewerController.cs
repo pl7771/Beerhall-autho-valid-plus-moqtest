@@ -16,7 +16,7 @@ namespace Beerhall.Controllers
         private readonly IBrewerRepository _brewerRepository;
         private readonly ILocationRepository _locationRepository;
 
-        public BrewerController(IBrewerRepository brewerRepository, ILocationRepository locationRepository)
+        public BrewerController(IBrewerRepository brewerRepository, ILocationRepository locationRepository )
         {
             _brewerRepository = brewerRepository;
             _locationRepository = locationRepository;
